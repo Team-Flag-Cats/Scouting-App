@@ -1,0 +1,1760 @@
+<!doctype html>
+<html>
+   <!-- reference https://www.experts-exchange.com/questions/28970186/How-to-retrieve-a-client-side-value-in-the-server-side-code-behind-in-asp-net.html
+      -->
+   <!-- software adapted from Internet sites by Homan 2018 search for HTML5 local storage
+      -->
+   <head>
+      <title>4265-3140 Scouting 2019</title>
+      <!-- <style type="text/css">
+         -->
+		 <meta name="viewport" content="width=400">
+		 <link rel="stylesheet" type="text/css" href="mobile.css" media="handheld">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+         /* Style the body */
+ body {
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    background-color: linen;
+     }
+    
+input[type=text], select {
+ 
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+ 
+}
+
+.moretext{
+    color:deepskyblue;   
+}
+
+input[type=submit] {
+ 
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.timerbutton{
+    color: white;
+    background-color: deeppink;
+}
+.stopwatch{
+    color: deepskyblue;
+}
+
+div {
+  border-radius: 5px;
+  background-color: black;
+  padding: 20px;
+  color:deeppink;
+
+}
+
+.foulstext{
+    color: yellow;
+}
+         .sandstormstuff{
+         
+      padding: 5px;
+         
+         color: burlywood;
+         border-bottom: 5px solid burlywood;
+    
+         }
+         .teleopstuff{
+         padding: 5px;
+         color: lime;
+         }
+
+         .otherstuff{
+         padding: 5px;
+         color: yellow;
+		 border-bottom: 5px solid yellow;
+		 border-top: 5px solid deeppink;
+         }
+
+          .teleopstuff{
+          padding: 5px;
+          color: lime;
+          }
+		  .broski{
+		  border-top: 5px dashed deepskyblue;
+		  }
+ 
+.endgamestuff{
+    color: deeppink;
+    padding: 5px;
+    border-bottom: 5px solid lime;
+}
+         .heightlabels{
+             text-align:left;
+        
+         }
+         /* Header/logo Title */
+         .header {
+         padding: 10px;
+         text-align: left;
+         background : deepskyblue;
+         color: black;
+		 border-top: lime;
+         
+
+         }
+         /* Increase the font size of the heading */
+         .header h1 {
+         font-size: 40px;
+         }
+         /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+    
+         .mbutton, .-button, .pbutton {
+             width: 20px;
+             height: 20px;
+        
+         }
+         .inputtext{
+            width: 100%;
+            color: dodgerblue;
+            font-size: 30px;
+            border-bottom: 5px solid deeppink;
+            text-align: left;
+         }
+         .tableinput, #autocomments{
+          
+            color: peru;
+           
+         }
+         .table2input{
+          
+          color: darkgreen;
+         
+       }
+       .foulsbtn{
+           color: orangered;
+       }
+       #autocomments{
+           width:500px;
+           
+       }
+      
+        
+         /* Style the navigation bar links */
+        
+         /* Main column */
+        
+         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+         @media screen and (max-width: 700px) {
+         .row {   
+             
+         flex-direction: column;
+         }
+         }
+         /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+         @media screen and (max-width: 400px) {
+         .navbar a {
+         float: none;
+         width: 100%;
+         }
+         }
+         /* Right-aligned link */
+         .navbar a.right {
+         float: right;
+         }
+    
+         .wrapper{
+        
+        
+         border-bottom: 5px solid deepskyblue;
+         }
+         body {
+         transform: scale(1.9);
+         transform-origin: 0 0;
+         background-color: black;
+         
+         }
+         .inputtext{
+           transform: scale(0.5);
+           transform-origin: 0 0;
+           height: 60px;
+         }
+         #title{
+         text-align: left;
+         
+         }
+
+         .levellabel{
+      
+         font-size: 20px;
+         text-align: right;
+
+         }.switch {
+         position: relative;
+         display: inline-block;
+         width: 60px;
+         height: 34px;
+         }
+         .switch input { 
+         opacity: 0;
+         width: 0;
+         height: 0;
+         }
+         .slider {
+         position: absolute;
+         cursor: pointer;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+       
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .slider:before {
+         position: absolute;
+         content: "";
+         height: 26px;
+         width: 26px;
+         left: 4px;
+         bottom: 4px;
+      
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         input:checked + .slider {
+         background-color: #2196F3;
+         }
+         input:focus + .slider {
+         box-shadow: 0 0 1px #2196F3;
+         }
+         input:checked + .slider:before {
+         -webkit-transform: translateX(26px);
+         -ms-transform: translateX(26px);
+         transform: translateX(26px);
+         }
+         /* Rounded sliders */
+         .slider.round {
+         border-radius: 34px;
+         }
+         .slider.round:before {
+         border-radius: 50%;
+         }    
+      </style>
+      <script>
+         // All the following code are methods to increment/decrement the various counters
+       
+               localStorage.rockethatches =0;
+               function rocketHatchesPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches) {
+                           localStorage.rockethatches = Number(localStorage.rockethatches) + 1;
+                           document.getElementById("rockethatches").value = localStorage.getItem("rockethatches");
+                       } else {
+                           localStorage.rockethatches = 1;
+                           document.getElementById("rockethatches").value = localStorage.getItem("rockethatches");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function rocketHatchesMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches) {
+                           localStorage.rockethatches = Number(localStorage.rockethatches) - 1;
+                           if(localStorage.rockethatches < 0){
+                               localStorage.rockethatches = Number(localStorage.rockethatches) +1;
+                               
+                           }
+                           document.getElementById("rockethatches").value = localStorage.getItem("rockethatches");
+                           
+                       } else {
+                           localStorage.rockethatches = 0;
+                           document.getElementById("rockethatches").value = localStorage.getItem("rockethatches");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                localStorage.rockethatches2 =0;
+               function rocketHatches2PlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches2) {
+                           localStorage.rockethatches2 = Number(localStorage.rockethatches2) + 1;
+                           document.getElementById("rockethatches2").value = localStorage.getItem("rockethatches2");
+                       } else {
+                           localStorage.rockethatches2 = 1;
+                           document.getElementById("rockethatches2").value = localStorage.getItem("rockethatches2");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                function rocketHatches2MinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches2) {
+                           localStorage.rockethatches2 = Number(localStorage.rockethatches2) - 1;
+                           if(localStorage.rockethatches2 < 0){
+                               localStorage.rockethatches2 = Number(localStorage.rockethatches2) +1;
+                               
+                           }
+                           document.getElementById("rockethatches2").value = localStorage.getItem("rockethatches2");
+                           
+                       } else {
+                           localStorage.rockethatches2 = 0;
+                           document.getElementById("rockethatches2").value = localStorage.getItem("rockethatches2");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                localStorage.rockethatches3 =0;
+               function rocketHatches3PlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches3) {
+                           localStorage.rockethatches3 = Number(localStorage.rockethatches3) + 1;
+                           document.getElementById("rockethatches3").value = localStorage.getItem("rockethatches3");
+                       } else {
+                           localStorage.rockethatches3 = 1;
+                           document.getElementById("rockethatches3").value = localStorage.getItem("rockethatches3");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                function rocketHatches3MinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rockethatches3) {
+                           localStorage.rockethatches3 = Number(localStorage.rockethatches3) - 1;
+                           if(localStorage.rockethatches3 < 0){
+                               localStorage.rockethatches3 = Number(localStorage.rockethatches3) +1;
+                               
+                           }
+                           document.getElementById("rockethatches3").value = localStorage.getItem("rockethatches3");
+                           
+                       } else {
+                           localStorage.rockethatches3 = 0;
+                           document.getElementById("rockethatches3").value = localStorage.getItem("rockethatches3");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+         
+         
+         
+         
+         
+         
+         localStorage.rocketcargo =0;
+               function rocketCargoPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo) {
+                           localStorage.rocketcargo = Number(localStorage.rocketcargo) + 1;
+                           document.getElementById("rocketcargo").value = localStorage.getItem("rocketcargo");
+                       } else {
+                           localStorage.rocketcargo = 1;
+                           document.getElementById("rocketcargo").value = localStorage.getItem("rocketcargo");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function rocketCargoMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo) {
+                           localStorage.rocketcargo = Number(localStorage.rocketcargo) - 1;
+                           if(localStorage.rocketcargo < 0){
+                               localStorage.rocketcargo = Number(localStorage.rocketcargo) +1;
+                               
+                           }
+                           document.getElementById("rocketcargo").value = localStorage.getItem("rocketcargo");
+                           
+                       } else {
+                           localStorage.rocketcargo = 0;
+                           document.getElementById("rocketcargo").value = localStorage.getItem("rocketcargo");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                localStorage.rocketcargo2 =0;
+               function rocketCargo2PlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo2) {
+                           localStorage.rocketcargo2 = Number(localStorage.rocketcargo2) + 1;
+                           document.getElementById("rocketcargo2").value = localStorage.getItem("rocketcargo2");
+                       } else {
+                           localStorage.rocketcargo2 = 1;
+                           document.getElementById("rocketcargo2").value = localStorage.getItem("rocketcargo2");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                function rocketCargo2MinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo2) {
+                           localStorage.rocketcargo2 = Number(localStorage.rocketcargo2) - 1;
+                           if(localStorage.rocketcargo2 < 0){
+                               localStorage.rocketcargo2 = Number(localStorage.rocketcargo2) +1;
+                               
+                           }
+                           document.getElementById("rocketcargo2").value = localStorage.getItem("rocketcargo2");
+                           
+                       } else {
+                           localStorage.rocketcargo2 = 0;
+                           document.getElementById("rocketcargo2").value = localStorage.getItem("rocketcargo2");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                localStorage.rocketcargo3 =0;
+               function rocketCargo3PlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo3) {
+                           localStorage.rocketcargo3 = Number(localStorage.rocketcargo3) + 1;
+                           document.getElementById("rocketcargo3").value = localStorage.getItem("rocketcargo3");
+                       } else {
+                           localStorage.rocketcargo3 = 1;
+                           document.getElementById("rocketcargo3").value = localStorage.getItem("rocketcargo3");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+                function rocketCargo3MinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.rocketcargo3) {
+                           localStorage.rocketcargo3 = Number(localStorage.rocketcargo3) - 1;
+                           if(localStorage.rocketcargo3 < 0){
+                               localStorage.rocketcargo3 = Number(localStorage.rocketcargo3) +1;
+                               
+                           }
+                           document.getElementById("rocketcargo3").value = localStorage.getItem("rocketcargo3");
+                           
+                       } else {
+                           localStorage.rocketcargo3 = 0;
+                           document.getElementById("rocketcargo3").value = localStorage.getItem("rocketcargo3");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+         
+         
+         
+         
+         
+         
+         
+         
+         localStorage.shiphatches =0;
+               function shipHatchesPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.shiphatches) {
+                           localStorage.shiphatches = Number(localStorage.shiphatches) + 1;
+                           document.getElementById("shiphatches").value = localStorage.getItem("shiphatches");
+                       } else {
+                           localStorage.shiphatches = 1;
+                           document.getElementById("shiphatches").value = localStorage.getItem("shiphatches");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function shipHatchesMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.shiphatches) {
+                           localStorage.shiphatches = Number(localStorage.shiphatches) - 1;
+                           if(localStorage.shiphatches < 0){
+                               localStorage.shiphatches = Number(localStorage.shiphatches) +1;
+                               
+                           }
+                           document.getElementById("shiphatches").value = localStorage.getItem("shiphatches");
+                           
+                       } else {
+                           localStorage.shiphatches = 0;
+                           document.getElementById("shiphatches").value = localStorage.getItem("shiphatches");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+         
+         localStorage.shipcargo =0;
+               function shipCargoPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.shipcargo) {
+                           localStorage.shipcargo = Number(localStorage.shipcargo) + 1;
+                           document.getElementById("shipcargo").value = localStorage.getItem("shipcargo");
+                       } else {
+                           localStorage.shipcargo = 1;
+                           document.getElementById("shicargo").value = localStorage.getItem("shipcargo");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function shipCargoMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.shipcargo) {
+                           localStorage.shipcargo = Number(localStorage.shipcargo) - 1;
+                           if(localStorage.shipcargo < 0){
+                               localStorage.shipcargo = Number(localStorage.shipcargo) +1;
+                               
+                           }
+                           document.getElementById("shipcargo").value = localStorage.getItem("shipcargo");
+                           
+                       } else {
+                           localStorage.shipcargo = 0;
+                           document.getElementById("shipcargo").value = localStorage.getItem("shipcargo");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         localStorage.rockethatchesauto =0; 
+         
+         function rocketHatchesautoPlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto) { 
+         
+         localStorage.rockethatchesauto = Number(localStorage.rockethatchesauto) + 1; 
+         
+         document.getElementById("rockethatchesauto").value = localStorage.getItem("rockethatchesauto"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto = 1; 
+         
+         document.getElementById("rockethatchesauto").value = localStorage.getItem("rockethatchesauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketHatchesautoMinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto) { 
+         
+         localStorage.rockethatchesauto = Number(localStorage.rockethatchesauto) - 1; 
+         
+         if(localStorage.rockethatchesauto < 0){ 
+         
+         localStorage.rockethatchesauto = Number(localStorage.rockethatchesauto) +1; 
+         
+         } 
+         
+         document.getElementById("rockethatchesauto").value = localStorage.getItem("rockethatchesauto"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto = 0; 
+         
+         document.getElementById("rockethatchesauto").value = localStorage.getItem("rockethatchesauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         localStorage.rockethatchesauto2 =0; 
+         
+         function rocketHatchesauto2PlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto2) { 
+         
+         localStorage.rockethatchesauto2 = Number(localStorage.rockethatchesauto2) + 1; 
+         
+         document.getElementById("rockethatchesauto2").value = localStorage.getItem("rockethatchesauto2"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto2 = 1; 
+         
+         document.getElementById("rockethatchesauto2").value = localStorage.getItem("rockethatchesauto2"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketHatchesauto2MinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto2) { 
+         
+         localStorage.rockethatchesauto2 = Number(localStorage.rockethatchesauto2) - 1; 
+         
+         if(localStorage.rockethatchesauto2 < 0){ 
+         
+         localStorage.rockethatchesauto2 = Number(localStorage.rockethatchesauto2) +1; 
+         
+         } 
+         
+         document.getElementById("rockethatchesauto2").value = localStorage.getItem("rockethatchesauto2"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto2 = 0; 
+         
+         document.getElementById("rockethatchesauto2").value = localStorage.getItem("rockethatchesauto2"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         localStorage.rockethatchesauto3 =0; 
+         
+         function rocketHatchesauto3PlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto3) { 
+         
+         localStorage.rockethatchesauto3 = Number(localStorage.rockethatchesauto3) + 1; 
+         
+         document.getElementById("rockethatchesauto3").value = localStorage.getItem("rockethatchesauto3"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto3 = 1; 
+         
+         document.getElementById("rockethatchesauto3").value = localStorage.getItem("rockethatchesauto3"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketHatchesauto3MinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rockethatchesauto3) { 
+         
+         localStorage.rockethatchesauto3 = Number(localStorage.rockethatchesauto3) - 1; 
+         
+         if(localStorage.rockethatchesauto3 < 0){ 
+         
+         localStorage.rockethatchesauto3 = Number(localStorage.rockethatchesauto3) +1; 
+         
+         } 
+         
+         document.getElementById("rockethatchesauto3").value = localStorage.getItem("rockethatchesauto3"); 
+         
+         } else { 
+         
+         localStorage.rockethatchesauto3 = 0; 
+         
+         document.getElementById("rockethatchesauto3").value = localStorage.getItem("rockethatchesauto3"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         localStorage.rocketcargoauto =0; 
+         
+         function rocketCargoautoPlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto) { 
+         
+         localStorage.rocketcargoauto = Number(localStorage.rocketcargoauto) + 1; 
+         
+         document.getElementById("rocketcargoauto").value = localStorage.getItem("rocketcargoauto"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto = 1; 
+         
+         document.getElementById("rocketcargoauto").value = localStorage.getItem("rocketcargoauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketCargoautoMinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto) { 
+         
+         localStorage.rocketcargoauto = Number(localStorage.rocketcargoauto) - 1; 
+         
+         if(localStorage.rocketcargoauto < 0){ 
+         
+         localStorage.rocketcargoauto = Number(localStorage.rocketcargoauto) +1; 
+         
+         } 
+         
+         document.getElementById("rocketcargoauto").value = localStorage.getItem("rocketcargoauto"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto = 0; 
+         
+         document.getElementById("rocketcargoauto").value = localStorage.getItem("rocketcargoauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         localStorage.rocketcargoauto2 =0; 
+         
+         function rocketCargoauto2PlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto2) { 
+         
+         localStorage.rocketcargoauto2 = Number(localStorage.rocketcargoauto2) + 1; 
+         
+         document.getElementById("rocketcargoauto2").value = localStorage.getItem("rocketcargoauto2"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto2 = 1; 
+         
+         document.getElementById("rocketcargoauto2").value = localStorage.getItem("rocketcargoauto2"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketCargoauto2MinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto2) { 
+         
+         localStorage.rocketcargoauto2 = Number(localStorage.rocketcargoauto2) - 1; 
+         
+         if(localStorage.rocketcargoauto2 < 0){ 
+         
+         localStorage.rocketcargoauto2 = Number(localStorage.rocketcargoauto2) +1; 
+         
+         } 
+         
+         document.getElementById("rocketcargoauto2").value = localStorage.getItem("rocketcargoauto2"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto2 = 0; 
+         
+         document.getElementById("rocketcargoauto2").value = localStorage.getItem("rocketcargoauto2"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         localStorage.rocketcargoauto3 =0; 
+         
+         function rocketCargoauto3PlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto3) { 
+         
+         localStorage.rocketcargoauto3 = Number(localStorage.rocketcargoauto3) + 1; 
+         
+         document.getElementById("rocketcargoauto3").value = localStorage.getItem("rocketcargoauto3"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto3 = 1; 
+         
+         document.getElementById("rocketcargoauto3").value = localStorage.getItem("rocketcargoauto3"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function rocketCargoauto3MinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.rocketcargoauto3) { 
+         
+         localStorage.rocketcargoauto3 = Number(localStorage.rocketcargoauto3) - 1; 
+         
+         if(localStorage.rocketcargoauto3 < 0){ 
+         
+         localStorage.rocketcargoauto3 = Number(localStorage.rocketcargoauto3) +1; 
+         
+         } 
+         
+         document.getElementById("rocketcargoauto3").value = localStorage.getItem("rocketcargoauto3"); 
+         
+         } else { 
+         
+         localStorage.rocketcargoauto3 = 0; 
+         
+         document.getElementById("rocketcargoauto3").value = localStorage.getItem("rocketcargoauto3"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         localStorage.shiphatchesauto =0; 
+         
+         function shipHatchesautoPlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.shiphatchesauto) { 
+         
+         localStorage.shiphatchesauto = Number(localStorage.shiphatchesauto) + 1; 
+         
+         document.getElementById("shiphatchesauto").value = localStorage.getItem("shiphatchesauto"); 
+         
+         } else { 
+         
+         localStorage.shiphatchesauto = 1; 
+         
+         document.getElementById("shiphatchesauto").value = localStorage.getItem("shiphatchesauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function shipHatchesautoMinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.shiphatchesauto) { 
+         
+         localStorage.shiphatchesauto = Number(localStorage.shiphatchesauto) - 1; 
+         
+         if(localStorage.shiphatchesauto < 0){ 
+         
+         localStorage.shiphatchesauto = Number(localStorage.shiphatchesauto) +1; 
+         
+         } 
+         
+         document.getElementById("shiphatchesauto").value = localStorage.getItem("shiphatchesauto"); 
+         
+         } else { 
+         
+         localStorage.shiphatchesauto = 0; 
+         
+         document.getElementById("shiphatchesauto").value = localStorage.getItem("shiphatchesauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         
+         
+         
+         localStorage.shipcargoauto =0; 
+         
+         function shipCargoautoPlusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.shipcargoauto) { 
+         
+         localStorage.shipcargoauto = Number(localStorage.shipcargoauto) + 1; 
+         
+         document.getElementById("shipcargoauto").value = localStorage.getItem("shipcargoauto"); 
+         
+         } else { 
+         
+         localStorage.shipcargoauto = 1; 
+         
+         document.getElementById("shicargoauto").value = localStorage.getItem("shipcargoauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         function shipCargoautoMinusCounter() { 
+         
+         if (typeof (Storage) !== "undefined") { 
+         
+         if (localStorage.shipcargoauto) { 
+         
+         localStorage.shipcargoauto = Number(localStorage.shipcargoauto) - 1; 
+         
+         if(localStorage.shipcargoauto < 0){ 
+         
+         localStorage.shipcargoauto = Number(localStorage.shipcargoauto) +1; 
+         
+         } 
+         
+         document.getElementById("shipcargoauto").value = localStorage.getItem("shipcargoauto"); 
+         
+         } else { 
+         
+         localStorage.shipcargoauto = 0; 
+         
+         document.getElementById("shipcargoauto").value = localStorage.getItem("shipcargoauto"); 
+         
+         } 
+         
+         } else { 
+         
+         document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage..."; 
+         
+         } 
+         
+         } 
+         
+         
+         
+         
+         
+         
+            
+         localStorage.techfouls =0;
+               function techfoulsPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.techfouls) {
+                           localStorage.techfouls = Number(localStorage.techfouls) + 1;
+                           document.getElementById("techfouls").value = localStorage.getItem("techfouls");
+                       } else {
+                           localStorage.techfouls = 1;
+                           document.getElementById("techfouls").value = localStorage.getItem("techfouls");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function techfoulsMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.techfouls) {
+                           localStorage.techfouls = Number(localStorage.techfouls) - 1;
+                           if(localStorage.techfouls < 0){
+                               localStorage.techfouls = Number(localStorage.techfouls) +1;
+                               
+                           }
+                           document.getElementById("techfouls").value = localStorage.getItem("techfouls");
+                           
+                       } else {
+                           localStorage.techfouls = 0;
+                           document.getElementById("techfouls").value = localStorage.getItem("techfouls");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+
+
+            
+         localStorage.fouls =0;
+               function foulsPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.fouls) {
+                           localStorage.fouls = Number(localStorage.fouls) + 1;
+                           document.getElementById("fouls").value = localStorage.getItem("fouls");
+                       } else {
+                           localStorage.fouls = 1;
+                           document.getElementById("fouls").value = localStorage.getItem("fouls");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function foulsMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.fouls) {
+                           localStorage.fouls = Number(localStorage.fouls) - 1;
+                           if(localStorage.fouls < 0){
+                               localStorage.fouls = Number(localStorage.fouls) +1;
+                               
+                           }
+                           document.getElementById("fouls").value = localStorage.getItem("fouls");
+                           
+                       } else {
+                           localStorage.fouls = 0;
+                           document.getElementById("fouls").value = localStorage.getItem("fouls");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+
+
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         localStorage.contacts =0;
+               function contactsPlusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.contacts) {
+                           localStorage.contacts = Number(localStorage.contacts) + 1;
+                           document.getElementById("contacts").value = localStorage.getItem("contacts");
+                       } else {
+                           localStorage.contacts = 1;
+                           document.getElementById("contacts").value = localStorage.getItem("contacts");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+               
+               function contactsMinusCounter() {
+                   if (typeof (Storage) !== "undefined") {
+                       if (localStorage.contacts) {
+                           localStorage.contacts = Number(localStorage.contacts) - 1;
+                           if(localStorage.contacts < 0){
+                               localStorage.contacts = Number(localStorage.contacts) +1;
+                               
+                           }
+                           document.getElementById("contacts").value = localStorage.getItem("contacts");
+                           
+                       } else {
+                           localStorage.contacts = 0;
+                           document.getElementById("contacts").value = localStorage.getItem("contacts");
+                       }
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+               }
+         
+
+
+
+
+
+
+
+
+
+
+
+
+  
+         
+
+
+
+
+
+
+
+
+         
+         // ???
+               function restorelocal() {
+                   if (typeof (Storage) !== "undefined") {
+                     
+                       document.getElementById("username").value = localStorage.getItem("username");
+                       document.getElementById("teamname").value = localStorage.getItem("teamname");
+                       document.getElementById("phone").value = localStorage.getItem("phone");
+                       document.getElementById("performance").value = localStorage.getItem("performance");
+
+                   } else {
+                       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                   }
+         
+               }
+           
+      </script>
+   </head>
+   <body>
+       <form>
+      <div class="header">
+         <h1>4265-3140 Scouting 2019</h1>
+      </div>
+      <div class="row">
+         <div class="main">
+            <div class="wrapper">
+               <div class="container">
+                    <h2 class = "moretext">General Info</h2>
+                  <font class = "moretext" size="2" >Scouter Name :</font>
+                  <input class = "inputtext" type="text" username="username" id="username" size="22">
+                  <p>
+                     <font class = "moretext" size="2">Scouter Phone # :</font>
+                     <input class = "inputtext"type="text" phone="phone" id="phone" size="22">
+                  <p>
+                     <font class = "moretext" size="2">Team Name :</font>
+                     <input class = "inputtext"type="text" phone="teamname" id="teamname" size="22">
+                     <font class = "moretext" size="2">Team Number :</font>
+                     <input class = "inputtext"type="text" phone="teamnum" id="teamnum" size="22">
+                     <font class = "moretext" size="2">Match Number :</font>
+                     <input class = "inputtext"type="text" phone="matchnum" id="matchnum" size="22">
+                     <br>
+                  <p>
+               </div>
+            </div>
+            <div class = "sandstormstuff">
+               <h2  >Sandstorm Data </h2>
+               <b><font > Platform: </font></b>
+               <select id="platform">
+                  <option value="One">Platform One</option>
+                  <option value="Two">Platform Two</option>
+               </select>
+               <br>
+               <table  class = "table" style="width:50%">
+                  <col>
+                  <col align="middle">
+                  <col align="right">
+                  <col align="right">
+                  <tr>
+                     <th> 
+                     <th> <font class = "heightlabels">Level One</font></th>
+                     <th><font class = "heightlabels">Level Two</font></th>
+                     <th><font class = "heightlabels">Level Three</font></th>
+                  </tr>
+                  <tr>
+                     <th> <font class = "levellabel" >Rocket Hatches:</font> </th>
+                     <th>
+                        <button class = "mbutton" onclick="rocketHatchesautoMinusCounter()" type="button">-</button> 
+                        <!-- <div class = buttonDiv id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rockethatchesauto" id="rockethatchesauto" size="4" readonly> 
+                        <button class = "pbutton" onclick="rocketHatchesautoPlusCounter()" type="button">+</button> 
+                     </th>
+                     <th>
+                        <button class = "mbutton" onclick="rocketHatchesauto2MinusCounter()" type="button">-</button> 
+                        <!-- <div id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rockethatchesauto2" id="rockethatchesauto2" size="4"readonly> 
+                        <button class = "pbutton" onclick="rocketHatchesauto2PlusCounter()" type="button">+</button> 
+                        <!-- <div id="result"></div> --> 
+                     </th>
+                     <th>
+                        <button class = "mbutton" onclick="rocketHatchesauto3MinusCounter()" type="button">-</button> 
+                        <!-- <div id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rockethatchesauto3" id="rockethatchesauto3" size="4"readonly> 
+                        <button  class = "pbutton" onclick="rocketHatchesauto3PlusCounter()" type="button">+</button> 
+                        <!-- <div id="result"></div> -->
+                     </th>
+                  </tr>
+                  <tr>
+                     <th> <font class = "levellabel" >Rocket Cargo :</font> </th>
+                     <th>
+                        <button  class = "mbutton" onclick="rocketCargoautoMinusCounter()" type="button">-</button> 
+                        <!-- <div class = buttonDiv id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rocketcargoauto" id="rocketcargoauto" size="4"readonly> 
+                        <button  class = "pbutton" onclick="rocketCargoautoPlusCounter()" type="button">+</button> 
+                     </th>
+                     <th>
+                        <button  class = "mbutton" onclick="rocketCargoauto2MinusCounter()" type="button">-</button> 
+                        <!-- <div id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rocketcargoauto2" id="rocketcargoauto2" size="4"readonly> 
+                        <button  class = "pbutton" onclick="rocketCargoauto2PlusCounter()" type="button">+</button> 
+                        <!-- <div id="result"></div> --> 
+                     </th>
+                     <th>
+                        <button  class = "mbutton" onclick="rocketCargoauto3MinusCounter()" type="button">-</button> 
+                        <!-- <div id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="rocketcargoauto3" id="rocketcargoauto3" size="4"readonly> 
+                        <button  class = "pbutton" onclick="rocketCargoauto3PlusCounter()" type="button">+</button> 
+                        <!-- <div id="result"></div> -->
+                     </th>
+                  </tr>
+                  <tr>
+                     <th> <font class = "levellabel" >Ship Hatches:</font> </th>
+                     <th>
+                        <button  class = "mbutton" onclick="shipHatchesautoMinusCounter()" type="button">-</button> 
+                        <!-- <div class = buttonDiv id="result"></div> --> 
+                        <input class = "tableinput"type="text" phone="shiphatchesauto" id="shiphatchesauto" size="4"readonly> 
+                        <button  class = "pbutton" onclick="shipHatchesautoPlusCounter()" type="button">+</button> 
+                     </th>
+                     <th> 
+                  <tr> 
+                  <tr>
+                     <th> <font class = "levellabel" >Ship Cargo :</font> </th>
+                     <th>
+                        <button  class = "mbutton" onclick="shipCargoautoMinusCounter()" type="button">-</button> 
+                        <!-- <div class = buttonDiv id="result"></div> --> 
+                        <input class = "tableinput" type="text" phone="shipcargoauto" id="shipcargoauto" size="4"readonly> 
+                        <button  class = "pbutton" onclick="shipCargoautoPlusCounter()" type="button">+</button> 
+                     </th>
+                     <th> 
+                  <tr> 
+               </table>
+               <b>
+                   
+            </div>
+            <div class = "teleopstuff">
+            <h2  >TeleOp Data</h2>
+            <table class = "table" style="width:50%">
+               <col>
+               <col align="middle">
+               <col align="right">
+               <col align="right">
+               <tr>
+                  <th>
+                  <th>Level One</th>
+                  <th>Level Two</th>
+                  <th>Level Three</th>
+               </tr>
+               <tr>
+                  <th> <font class = "levellabel" >Rocket Hatches :</font> </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketHatchesMinusCounter()" type="button">-</button>
+                     <!-- <div class = buttonDiv id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rockethatches" id="rockethatches" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketHatchesPlusCounter()" type="button">+</button>
+                  </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketHatches2MinusCounter()" type="button">-</button>
+                     <!-- <div id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rockethatches2" id="rockethatches2" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketHatches2PlusCounter()" type="button">+</button>
+                     <!-- <div id="result"></div> -->
+                  </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketHatches3MinusCounter()" type="button">-</button>
+                     <!-- <div id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rockethatches3" id="rockethatches3" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketHatches3PlusCounter()" type="button">+</button>
+                     <!-- <div id="result"></div> -->
+                  </th>
+               </tr>
+               <tr>
+                  <th> <font class = "levellabel" >Rocket Cargo :</font> </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketCargoMinusCounter()" type="button">-</button>
+                     <!-- <div class = buttonDiv id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rocketcargo" id="rocketcargo" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketCargoPlusCounter()" type="button">+</button>
+                  </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketCargo2MinusCounter()" type="button">-</button>
+                     <!-- <div id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rocketcargo2" id="rocketcargo2" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketCargo2PlusCounter()" type="button">+</button>
+                     <!-- <div id="result"></div> -->
+                  </th>
+                  <th>
+                     <button  class = "-button" onclick="rocketCargo3MinusCounter()" type="button">-</button>
+                     <!-- <div id="result"></div> -->
+                     <input class = "table2input" type="text" phone="rocketcargo3" id="rocketcargo3" size="4"readonly>
+                     <button  class = "pbutton" onclick="rocketCargo3PlusCounter()" type="button">+</button>
+                     <!-- <div id="result"></div> -->
+                  </th>
+               </tr>
+               <tr>
+                  <th> <font class = "levellabel" >Ship Hatches :</font> </th>
+                  <th>
+                     <button  class = "-button" onclick="shipHatchesMinusCounter()" type="button">-</button>
+                     <!-- <div class = buttonDiv id="result"></div> -->
+                     <input class = "table2input" type="text" phone="shiphatches" id="shiphatches" size="4"readonly>
+                     <button  class = "pbutton" onclick="shipHatchesPlusCounter()" type="button">+</button>
+                  </th>
+                  <th>
+               <tr>
+               <tr>
+                  <th> <font class = "levellabel" >Ship Cargo :</font> </th>
+                  <th>
+                     <button  class = "-button" onclick="shipCargoMinusCounter()" type="button">-</button>
+                     <!-- <div class = buttonDiv id="result"></div> -->
+                     <input class = "table2input" type="text" phone="shipcargo" id="shipcargo" size="4"readonly>
+                     <button  class = "pbutton" onclick="shipCargoPlusCounter()" type="button">+</button>
+                  </th>
+                  <th>
+               <tr>
+                   <tr>
+                       <th><font class = "levellabel" >Contacts :</font> </th>
+                       <th>
+                        <button  class = "-button" onclick="contactsMinusCounter()" type="button">-</button>
+                        <!-- <div class = buttonDiv id="result"></div> -->
+                        <input class = "table2input" type="text" phone="contacts" id="contacts" size="4"readonly>
+                        <button  class = "pbutton" onclick="contactsPlusCounter()" type="button">+</button></th>
+                   </tr>
+            </table>
+            
+            <!-- <div class = buttonDiv id="result"></div> -->
+         </div>
+         <br>
+         <p>
+            <br>
+         <p>
+           
+            <div color = "deeppink" class = "endgamestuff"></div>
+            <h1>End Game Data</h1>
+            <h3>Climb Time: </h3>
+            <nav class="controls">
+                    <a class="timerbutton" onClick="stopwatch.start();">Start</a>
+                    <a class="timerbutton" onClick="stopwatch.stop();">Stop</a>
+                    <a class="timerbutton" onClick="stopwatch.reset();">Reset</a>
+    
+                   
+                </nav>
+                <div id = "time" class="stopwatch"></div>
+                <ul class="results"></ul>
+            <b><font >Level Climbed: </font></b>
+            <select id="climb">
+               <option value="Did Not Attempt">Did Not Attempt</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="failed">Failed</option>
+            </select>
+           
+         <p>
+            <b><font >Double Climb: </font></b>
+            <select id="doubleclimb">
+               <option value="None">None</option>
+               <option value="lifted1"> Lifted One</option>
+               <option value="lifted2">Lifted Two</option>
+               <option value="werelifted"> Were Lifted</option>
+               <option value="failed">Failed</option>
+            </select>
+         <p>
+            
+           </div>
+       
+          
+                <div color = "yellow" class = "otherstuff">
+                <h1>Other Data</h1>
+                <font  >Defense Rating: </font>
+            
+            <select id="defenseRating">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="5">5</option>
+               <option value="8">8</option>
+               <option value="13">13</option>
+            </select>
+            <br>
+         <p>
+            <font >Bricked</font>  
+            <select id="bricked">
+               <option value="no">No</option>
+               <option value="yes">Yes</option>
+            </select>
+         <p>
+            <br>
+            <font >Overall Performance</font>
+            <br>
+            <select id="performance">
+               <option value="fair">Fair</option>
+               <option value="good">Good</option>
+               <option value="better">Better</option>
+               <option value="best">Best</option>
+            </select>
+            <br>
+           <p>
+                <font >Fouls :</font> 
+            <button  class = "-button" onclick="foulsMinusCounter()" type="button">-</button>
+            <!-- <div class = buttonDiv id="result"></div> -->
+            <input class = "foulsbtn" color= "yellow" type="text" phone="fouls" id="fouls" size="4"readonly>
+            <button  class = "+button" onclick="foulsPlusCounter()" type="button">+</button>
+            <font >Tech Fouls :</font> 
+            <button  class = "-button" onclick="techfoulsMinusCounter()" type="button">-</button>
+            <!-- <div class = buttonDiv id="result"></div> -->
+            <input class = "foulsbtn" color= "yellow"  type="text" phone="techfouls" id="techfouls" size="4"readonly>
+            <button  class = "+button" onclick="techfoulsPlusCounter()" type="button">+</button>
+            <br>
+            <p>
+            <font width: "100%" size="2">Comments:</font>
+           
+               <input id= "autocomments" type="text" id="autoComments" size="22">
+               <p>
+
+           </div>
+			<div>
+				<button class ="restore" onclick="restorelocal()" type="button">Restore local input</button>
+				<button class ="send" id="sendData">Save input locally</button> &nbsp;
+				<button class ="clear" id="clearData">Clear local input</button>
+			    </div>
+        </div>
+
+            <script>class Stopwatch {
+                    constructor(display, results) {
+                        this.running = false;
+                        this.display = display;
+                        this.results = results;
+                        this.laps = [];
+                        this.reset();
+                        this.print(this.times);
+                    }
+                    
+                    reset() {
+                        this.times = [ 0, 0, 0 ];
+                        this.stop();
+                        this.print();
+                    }
+                    
+                    start() {
+                        if (!this.time) this.time = performance.now();
+                        if (!this.running) {
+                            this.running = true;
+                            requestAnimationFrame(this.step.bind(this));
+                        }
+                    }
+                    
+                    lap() {
+                        let times = this.times;
+                        let li = document.createElement('li');
+                        li.innerText = this.format(times);
+                        this.results.appendChild(li);
+                    }
+                    
+                    stop() {
+                        this.running = false;
+                        this.time = null;
+                    }
+                
+                    restart() {
+                        if (!this.time) this.time = performance.now();
+                        if (!this.running) {
+                            this.running = true;
+                            requestAnimationFrame(this.step.bind(this));
+                        }
+                        this.reset();
+                    }
+                    
+                    clear() {
+                        clearChildren(this.results);
+                    }
+                    
+                    step(timestamp) {
+                        if (!this.running) return;
+                        this.calculate(timestamp);
+                        this.time = timestamp;
+                        this.print();
+                        requestAnimationFrame(this.step.bind(this));
+                    }
+                    
+                    calculate(timestamp) {
+                        var diff = timestamp - this.time;
+                        // Hundredths of a second are 100 ms
+                        this.times[2] += diff / 10;
+                        // Seconds are 100 hundredths of a second
+                        if (this.times[2] >= 100) {
+                            this.times[1] += 1;
+                            this.times[2] -= 100;
+                        }
+                        // Minutes are 60 seconds
+                        if (this.times[1] >= 60) {
+                            this.times[0] += 1;
+                            this.times[1] -= 60;
+                        }
+                    }
+                    
+                    print() {
+                        this.display.innerText = this.format(this.times);
+                    }
+                    
+                    format(times) {
+                        return `\
+                ${pad0(times[0], 2)}:\
+                ${pad0(times[1], 2)}:\
+                ${pad0(Math.floor(times[2]), 2)}`;
+                    }
+                }
+                
+                function pad0(value, count) {
+                    var result = value.toString();
+                    for (; result.length < count; --count)
+                        result = '0' + result;
+                    return result;
+                }
+                
+                function clearChildren(node) {
+                    while (node.lastChild)
+                        node.removeChild(node.lastChild);
+                }
+                
+                let stopwatch = new Stopwatch(
+                    document.querySelector('.stopwatch'),
+                    document.querySelector('.results'));</script>
+    </div>
+    </form>
+      <script src="jquery.js"></script>
+      <script>
+         $(function () {
+         
+         // Resets the data
+             $('#clearData').click(function (e) {
+                 e.preventDefault();
+                 var username = $('#username').val();
+                 var phone = $('#phone').val();
+                 localStorage.clear();
+                 window.localStorage.setItem("username", username);
+                 window.localStorage.setItem("phone", phone);
+                
+                 $('#teamname').val('');
+                 $('#performance').val('');
+         $('#platform').val('');
+         $('#climb').val('');
+         $('#doubleclimb').val('');
+         $('#rating').val('');
+         $('#teamnum').val('');
+         $('#matchnum').val('');
+         $('#autoComments').val('');
+         $('#rockethatchesauto').val('');
+         $('#rockethatchesauto2').val('');
+         $('#rockethatchesauto3').val('');
+         $('#rocketcargoauto').val('');
+         $('#rocketcargoauto2').val('');
+         $('#rocketcargoauto3').val('');
+         $('#shiphatchesauto').val('');
+         $('#shipcargoauto').val('');
+         $('#rockethatches').val('');
+         $('#rockethatches2').val('');
+         $('#rockethatches3').val('');
+         $('#rocketcargo').val('');
+         $('#rocketcargo2').val('');
+         $('#rocketcargo3').val('');
+         $('#shiphatches').val('');
+         $('#shipcargo').val('');
+         $('#contacts').val('');
+         $('#defenseRating').val('');
+         $('#bricked').val('');
+         $('#time').val('');
+         
+             });
+         
+         //  Sends the data
+             $('#sendData').click(function (e) {
+                 e.preventDefault();
+                 var username = $('#username').val();
+                 window.localStorage.setItem("username", username);
+                 var phone = $('#phone').val();
+                 window.localStorage.setItem("phone", phone);
+                 var teamname = $('#teamname').val();
+                 window.localStorage.setItem("teamname", teamname);
+                 var teamnum = $('#teamnum').val();
+         window.localStorage.setItem("teamnum", teamnum);
+                 var matchnum = $('#matchnum').val();
+         window.localStorage.setItem("matchnum", matchnum);
+                 var performance = $('#performance').val();
+                 window.localStorage.setItem("performance", performance);
+         var platform = $('#platform').val();
+         window.localStorage.setItem("platform", platform);
+         var climb = $('#climb').val();
+         window.localStorage.setItem("climb", climb);
+         var doubleclimb = $('#doubleclimb').val();
+         window.localStorage.setItem("doubleclimb", doubleclimb);
+                
+         var autoComments = $('#autoComments').val();
+         window.localStorage.setItem("autoComments", autoComments);
+         var rockethatchesauto = $('#rockethatchesauto').val();
+         window.localStorage.setItem("rockethatchesauto", rockethatchesauto);
+         var rockethatchesauto2 = $('#rockethatchesauto2').val();
+         window.localStorage.setItem("rockethatchesauto2", rockethatchesauto2);
+         var rockethatchesauto3 = $('#rockethatchesauto3').val();
+         window.localStorage.setItem("rockethatchesauto3", rockethatchesauto3);
+         var rocketcargoauto = $('#rocketcargoauto').val();
+         window.localStorage.setItem("rocketcargoauto", rocketcargoauto);
+         var rocketcargoauto2 = $('#rocketcargoauto2').val();
+         window.localStorage.setItem("rocketcargoauto2", rocketcargoauto2);
+         var rocketcargoauto3 = $('#rocketcargoauto3').val();
+         window.localStorage.setItem("rocketcargoauto3", rocketcargoauto3);
+         var shiphatchesauto = $('#shiphatchesauto').val();
+         window.localStorage.setItem("shiphatchesauto", shiphatchesauto);
+         var shipcargoauto = $('#shipcargoauto').val();
+         window.localStorage.setItem("shipcargoauto", shipcargoauto);
+         var rockethatches = $('#rockethatches').val();
+         window.localStorage.setItem("rockethatches", rockethatches);
+         var rockethatches2 = $('#rockethatches2').val();
+         window.localStorage.setItem("rockethatches2", rockethatches2);
+         var rockethatches3 = $('#rockethatches3').val();
+         window.localStorage.setItem("rockethatches3", rockethatches3);
+         var rocketcargo = $('#rocketcargo').val();
+         window.localStorage.setItem("rocketcargo", rocketcargo)
+         var rocketcargo2 = $('#rocketcargo2').val();
+         window.localStorage.setItem("rocketcargo2", rocketcargo2);
+         var rocketcargo3 = $('#rocketcargo3').val();
+         window.localStorage.setItem("rocketcargo3", rocketcargo3);
+         var shiphatches = $('#shiphatches').val();
+         window.localStorage.setItem("shiphatches", shiphatches);
+         var shipcargo = $('#shipcargo').val();
+         window.localStorage.setItem("shipcargo", shipcargo);
+         var contacts = $('#contacts').val();
+         window.localStorage.setItem("contacts", contacts);
+         var bricked = $('#bricked').val();
+         window.localStorage.setItem("bricked", bricked);
+         var defenseRating = $('#defenseRating').val();
+         var fouls = $('#fouls').val();
+                 window.localStorage.setItem("fouls", fouls);
+        var techfouls = $('#techfouls').val();
+         window.localStorage.setItem("techfouls", techfouls);
+         window.localStorage.setItem("defenseRating", defenseRating);
+         var time = $('#time').val();
+                 window.localStorage.setItem("time", time);
+
+         
+                 $.ajax({
+                     url: 'scout.aspx',
+                     data: { name: username, phone: phone, counter: counter, teamname: teamname, teamnum: teamnum, matchnum: matchnum, performance: performance, 
+         platform: platform, climb: climb, doubleclimb: doubleclimb,
+         autoComments: autoComments, rockethatchesauto: rockethatchesauto, 
+         rockethatchesauto2: rockethatchesauto2, rockethatchesauto3: rockethatchesauto3, 
+         rocketcargoauto: rocketcargoauto, rocketcargoauto2: rocketcargoauto2, rocketcargoauto3: rocketcargoauto3,
+         shiphatchesauto: shiphatchesauto, shipcargoauto: shipcargoauto, rockethatches: rockethatches,
+         rockethatches2: rockethatches2, rockethatches3: rockethatches3, rocketcargo: rocketcargo,
+         rocketcargo2: rocketcargo2, rocketcargo3: rocketcargo3, shiphatches: shiphatches,
+         shipcargo: shipcargo, contacts: contacts, bricked: bricked, defenseRating: defenseRating, climbtime: time, techfouls: techfouls, fouls: fouls},
+         
+                     type: 'POST',
+                     success: function () {
+                         return console.log("success");
+                         
+                     },
+                     error: function (jqXHR, textStatus, errorThrown) {
+                         console.log("error. textStatus: %s  errorThrown: %s", textStatus, errorThrown);
+                         return alert("There was an error handling your request please try again.");
+                     },
+                     complete: function (jqXHR, textStatus) {
+                         return console.log("complete. textStatus: %s", textStatus);
+                     }
+         
+                 }).done(function (resp) {
+                     alert(resp);
+                 });
+             });
+         });
+      </script>
+   </body>
+</html>

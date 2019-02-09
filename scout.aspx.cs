@@ -13,10 +13,7 @@ public partial class scout : System.Web.UI.Page
         var varPhone = Request.Form["phone"];
         var varTeamname = Request.Form["teamname"];
         var varPerformance = Request.Form["performance"];
-        var varCounter = Request.Form["counter"];
 		var varPlatform = Request.Form["platform"];
-		 var varTeamnum = Request.Form["teamnum"];
-		  var varMatchNum = Request.Form["matchnum"];
 		var varClimb = Request.Form["climb"];
 		var varDoubleClimb = Request.Form["doubleclimb"];
 		var varAutoComments = Request.Form["autoComments"];
@@ -39,37 +36,59 @@ public partial class scout : System.Web.UI.Page
 		var varContacts = Request.Form["contacts"];
 		var varBricked = Request.Form["bricked"];
 		var varDefenseRating = Request.Form["defenseRating"];
-		var vartime = Request.Form["time"];
-		var varfouls = Request.Form["fouls"];
-		var vartechfouls = Request.Form["techfouls"];
-		
+		var varFouls = Request.Form["fouls"];
+		var varTechFouls = Request.Form["techfouls"];
+
         if (!IsPostBack)
         {
             //Code when initial loading 
-            using (System.IO.StreamWriter w = new System.IO.StreamWriter(Server.MapPath("~/Files/scouts.csv"), true))
+            using (System.IO.StreamWriter v = new System.IO.StreamWriter(Server.MapPath("~/Files/scouts.csv"), true))
 
             {
-				
-				//w.WriteLine("name,phone,teamname,performance,counter");
-                w.WriteLine(varName + "," + varPhone + ","  + varTeamname + "," + varTeamnum + "," + varMatchNum + ","+ varPerformance + "," + varCounter + "," 
-				+ varPlatform + "," + varClimb + "," + varDoubleClimb + "," + varAutoComments + "," 
-				+ varRocketCargoAuto + "," + varRocketCargoAuto2 + "," + varRocketCargoAuto3
+				//v.WriteLine("name,phone,teamname,performance,counter");
+                v.WriteLine(varName + "," + varPhone + ","  + varTeamname + "," + varPerformance + "," 
+				+ varPlatform + "," + varClimb + "," + varDoubleClimb + ","
+				+ varRocketHatchesAuto + "," + varRocketHatchesAuto2 + "," + varRocketHatchesAuto3
 				+ "," + varRocketCargoAuto + "," + varRocketCargoAuto2 + "," + varRocketCargoAuto3 + "," + varShipHatchesAuto
 				+ "," + varShipCargoAuto + "," + varRocketHatches + "," + varRocketHatches2 + "," + varRocketHatches3
 				+ "," + varRocketCargo + "," + varRocketCargo2 + "," + varRocketCargo3 + "," + varShipHatches 
-				+ "," + varShipCargo + "," + varContacts + "," + varBricked + "," + varDefenseRating+ "," + vartime+ "," + varfouls+ "," + vartechfouls);
+				+ "," + varShipCargo + "," + varContacts + "," + varBricked + "," + varDefenseRating
+				+ "," + varFouls + "," + varTechFouls);
             }
-            Response.Write("success");
-        }
-        else
-        {
+			using (System.IO.StreamWriter h = new System.IO.StreamWriter(Server.MapPath("~/Files/header.csv"), false)){
+				h.WriteLine("Name,Phone,Teamname,Performance,Platform,Climb,DoubleClimb," + 
+				"RocketHatchesAuto,RocketHatchesAuto2,RocketHatchesAuto3,RocketCargoAuto,RocketCargoAuto2," +
+				"RocketCargoAuto3,ShipHatchesAuto,ShipCargoAuto,RocketHatches,RocketHatches2,RocketHatches3,RocketCargo," +
+				"RocketCargo2,RocketCargo3,ShipHatches,ShipCargo,Contacts,Bricked,DefenseRating,Fouls,TechFouls");
+			}
+			 
+			using (var outputStream = System.IO.File.Create(Server.MapPath("~/Files/finalScout.csv")))
+			{
+					using (var headerStream = System.IO.File.OpenRead(Server.MapPath("~/Files/header.csv")))
+					{
+						// Buffer size can be passed as the second argument.
+						headerStream.CopyTo(outputStream);
+					} 
+					using (var scoutStream = System.IO.File.OpenRead(Server.MapPath("~/Files/scouts.csv")))
+					{
+						// Buffer size can be passed as the second argument.
+						scoutStream.CopyTo(outputStream);
+					}
+					
+			}
+			
+			Response.Write("success");
+			
+        } 
+		else 
+		{
             
             // code when post back 
-        }
-        }
+		}	
+		}
         catch (Exception ex)
         {
-            Response.Write("error " + ex.Message);
+	        Response.Write("error " + ex.Message);
             
         }
 
@@ -77,6 +96,4 @@ public partial class scout : System.Web.UI.Page
 
 
 }
-
-
 
